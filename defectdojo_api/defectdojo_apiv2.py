@@ -461,6 +461,11 @@ class DefectDojoAPIv2(object):
 
         return self._request('PUT', 'tests/' + str(test_id) + '/', data=data)
 
+
+    def delete_test(self, test_id):
+        return self._request('DELETE', 'tests/' + str(id) + '/')
+
+
     ###### Findings API #######
     def list_findings(self, active=None, duplicate=None, mitigated=None, severity=None, verified=None, severity_lt=None,
         severity_gt=None, severity_contains=None, title_contains=None, url_contains=None, date_lt=None,
@@ -545,6 +550,7 @@ class DefectDojoAPIv2(object):
             params['build_id__contains'] = build
 
         return self._request('GET', 'findings/', params)
+
 
     def get_finding(self, finding_id):
         """
@@ -680,6 +686,7 @@ class DefectDojoAPIv2(object):
             data['build_id'] = build
 
         return self._request('PUT', 'findings/' + str(finding_id) + '/', data=data)
+
 
     ##### Build Details API #####
 
